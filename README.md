@@ -15,18 +15,17 @@ The analytical pipeline executes the following steps:
 ## Usage
 The entire workflow is consolidated into a single Jupyter Notebook. 
 
-To ensure strict scientific reproducibility and preserve the exact data evaluated in the manuscript, the repository includes frozen static datasets (`01_raw_chembl_data.csv`). By default, the notebook is configured to run entirely offline using these frozen files.
+To ensure reproducibility and preserve the evaluated data, the repository includes static datasets and the analytical pipeline encompassing initial ChEMBL data retrieval through model generation. By default, the notebook is configured to execute offline utilizing the `01_raw_chembl_data.csv`  file to reproduce the manuscript results.
 1. Clone this repository to your local machine.
 2. Open the primary Jupyter Notebook.
 3. Select **Kernel -> Restart & Run All**.
 
 ### Querying Live Data
-Researchers who wish to query the most current database iterations can do so by changing the global toggle at the top of the notebook:
-Change `FETCH_LIVE_DATA = False` to `FETCH_LIVE_DATA = True`.
-The script will automatically download the latest live data directly from the ChEMBL database and overwrite the local files.
+Researchers querying current database iterations must change the global toggle at the top of the notebook from `FETCH_CHEMBL_NEW = False` to `FETCH_CHEMBL_NEW = True`.
+This action retrieves the latest data from the ChEMBL database and overwrites the local files.
 
 ### Outputs
-Executing the notebook automatically generates the publication-ready figures (300 dpi TIFF format) and data tables (CSV format) directly into your working directory. It also exports the final trained Random Forest model as a `.pkl` file.
+Executing the notebook generates intermediate datasets encompassing standardized molecules and curated cohorts exported as CSV files. The pipeline produces summary data tables formatted as CSV files and figures formatted as 300 dpi TIFF files. The trained Random Forest (RF) model is exported as a `.pkl` file into the designated directory. 
 
 ## Citation
 Citation details will be updated upon the manuscript's publication.
